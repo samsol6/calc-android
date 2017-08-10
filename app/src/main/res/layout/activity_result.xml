@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.shan.tecklaptop.taxcalculator.ResultActivity"
+   >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/result_container"
+
+           >
+
+            <RelativeLayout
+                android:id="@+id/first_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Net Taxable Income"
+                    android:textSize="15dp"
+                    />
+
+                <TextView
+                    android:id="@+id/net_tax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/second_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/f_screen_bg"
+                android:layout_below="@+id/first_row"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Tax upto Rs"
+                    android:textSize="15dp"
+                    android:id="@+id/taxUpTo"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/taxUpTo"
+                    android:id="@+id/set_income_tax"
+                    android:layout_alignTop="@+id/taxUpTo"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/tax_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/third_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/second_row"
+                android:background="@drawable/f_screen_bg"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Tax on excess Amount @"
+                    android:textSize="15dp"
+                    android:id="@+id/amount_ex"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/amount_ex"
+                    android:layout_alignTop="@+id/amount_ex"
+                    android:id="@+id/set_percent"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/exceed_amount_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/fourth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/third_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Total tax calculated"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/total_tax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fifth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fourth_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Rebate/withholding tax already paid"
+                    android:textSize="15dp"
+                    android:layout_toLeftOf="@+id/rebate"/>
+
+                <TextView
+                    android:id="@+id/rebate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sixth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fifth_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Net Tax Payable"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/net_tax_payable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/seventh_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sixth_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Tax already deducted through salary"
+                    android:textSize="15dp"
+                    android:layout_toLeftOf="@+id/deducted_tax"/>
+
+                <TextView
+                    android:id="@+id/deducted_tax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/eight_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seventh_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:layout_toLeftOf="@+id/other_income"
+                    android:text="Tax already deducted through other income"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/other_income"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/nineth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/eight_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Balance"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@android:color/black" />
+
+
+            </RelativeLayout>
+            
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:id="@+id/imageView"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nineth_row"
+                android:background="@drawable/save_button_bg"
+                android:text="View Final Conclusion"
+                android:textColor="@android:color/white"
+                android:onClick="GeneratePDF"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

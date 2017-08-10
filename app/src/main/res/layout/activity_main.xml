@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.shan.tecklaptop.taxcalculator.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/yearSpinner"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                >
+
+            </Spinner>
+
+            <RelativeLayout
+                android:id="@+id/first_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/f_screen_bg"
+                android:layout_below="@+id/yearSpinner"
+                >
+
+                <TextView
+                    android:id="@+id/gross_salary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Gross Salary"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/input_gross"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/gross_salary"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/second_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/first_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/rent_allownce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="House Rent Allowance *"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/input_house_rent"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/rent_allownce"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/third_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/second_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/elec_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Cost of free electricity units **"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/input_elec_unit"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/elec_unit"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fourth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/third_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/consumed_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Cost of unconsumed unit **"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/input_consume_unit"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/consumed_unit"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fifth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fourth_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/other_income"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Other Income ***"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/input_other_income"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/other_income"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sixth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fifth_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/donation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Donetion deducted"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/input_donation"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/donation"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/seventh_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sixth_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/zakat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Zakat deducted"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/input_zakat"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/zakat"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/new_row_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seventh_row"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/rebate_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Rebate/withholding tax already paid"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/rebate_label_input"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/rebate_label"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/new_row_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/new_row_one"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/tax_deduct_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Tax already deducted through salary "
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:layout_toLeftOf="@+id/tax_deduct_input"/>
+
+                <EditText
+                    android:id="@+id/tax_deduct_input"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/new_row_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/new_row_two"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:id="@+id/other_income_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:text="Tax already deducted through other income ***"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:layout_toLeftOf="@+id/other_income_label_input"/>
+
+                <EditText
+                    android:id="@+id/other_income_label_input"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/other_income_label"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/eighth_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/new_row_three"
+                android:background="@drawable/f_screen_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:layout_alignTop="@+id/house_aqui"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/house_aqui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="50dp"
+                    android:text="For house aquisition only"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="**"
+                    android:layout_alignTop="@+id/wapda"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/wapda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/house_aqui"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="For wapda employee only"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:layout_alignTop="@+id/bonus"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/bonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/wapda"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Bonus, Honorarium, Reward, etc"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:layout_marginBottom="20dp"/>
+
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/adView"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:text="Calculate"
+                android:onClick="calculate"
+                android:visibility="visible"/>
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+
+                ads:adSize="BANNER"
+                android:layout_below="@+id/eighth_row"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            </com.google.android.gms.ads.AdView>
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

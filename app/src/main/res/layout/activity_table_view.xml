@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.shan.tecklaptop.taxcalculator.SlabEditorActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/row_one"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="No."
+                    android:textSize="17dp"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/l_limit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Lower"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/l_limit"
+                        android:layout_centerHorizontal="true"
+                        android:text="Limit"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/u_limit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Upper"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/u_limit"
+                        android:layout_centerHorizontal="true"
+                        android:text="Limit"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/in_tax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Income" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/in_tax"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:text="Tax" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="%"
+                    android:textSize="17dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="Edit"
+                    android:textSize="17dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/row_two"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_one"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_one_lower_limit"
+                    />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="400000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_one_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_one_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_one_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_one_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/missing_row"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_two"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="400000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_two_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_two_uper_limit"
+                    />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_two_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_two_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_two_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/row_three"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/missing_row"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_three_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="750000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_three_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="2000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_three_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_three_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_three_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/row_four"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_three"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="750000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_four_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1400000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_four_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="14500"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_four_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="10"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_four_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_four_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row_five"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_four"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textSize="17dp"
+                    />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1400000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_five_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_five_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="79500"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_five_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="12.5"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_five_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_five_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/row_six"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_five"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="6"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_six_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1800000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_six_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="92000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_six_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="15"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_six_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_six_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row_seven"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_six"
+                android:weightSum="12">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="7"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1800000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_seven_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="2500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_seven_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="137000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_seven_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="17.5"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_seven_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_seven_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/row_eight"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_seven"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="2500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_eight_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="3000000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_eight_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="259500"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_eight_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="20"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_eight_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_eight_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/row_nine"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_eight"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="9"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="3000000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_nine_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="3500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_nine_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="359500"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_nine_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="22.5"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_nine_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_nine_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row_ten"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_nine"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="10"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="3500000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_ten_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="4000000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_ten_uper_limit"/>
+
+                <EditText
+
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="472000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_ten_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="25"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_ten_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_ten_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/row_elev"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_ten"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="11"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="4000000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_elev_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="7000000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_elev_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="597000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_elev_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="27.5"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_elev_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_elev_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row_twe"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/row_elev"
+                android:weightSum="12">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="12"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="7000000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_twe_lower_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_twe_uper_limit"/>
+
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="1422000"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_twe_income"/>
+
+                <EditText
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg"
+                    android:gravity="center"
+                    android:text="30"
+                    android:textSize="14dp"
+                    android:inputType="number"
+                    android:id="@+id/row_twe_percent"/>
+
+                <RelativeLayout
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/f_screen_bg">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit"
+                        android:id="@+id/row_twe_edit"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/save_button_bg"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:layout_below="@+id/row_twe"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/saveButton"/>
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
