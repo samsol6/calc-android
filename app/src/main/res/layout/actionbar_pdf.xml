@@ -9,18 +9,18 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Final Conclusion"
+        android:text="PDF"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:textColor="@android:color/white"
         />
-    <!--<ImageView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/ic_menu_send"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:onClick="sendEmail"/>-->
+        android:onClick="sendEmail"/>
 
 </RelativeLayout>

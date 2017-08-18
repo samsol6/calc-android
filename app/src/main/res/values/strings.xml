@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TaxCalculator</string>
-    <string name="ADD_ID">ca-app-pub-5758974607162669/4241364432</string>
+   <!-- <string name="ADD_ID">ca-app-pub-5758974607162669/4241364432</string>-->
+    <string name="ADD_ID">ca-app-pub-1094766830624422/5905292718</string>
     <string name="ADD_APP_ID">ca-app-pub-5758974607162669~2409408015</string>
     <string name="title_activity_main2">Main2Activity</string>
 

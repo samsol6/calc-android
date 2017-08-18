@@ -42,7 +42,8 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FinalOutComeAcitivty extends AppCompatActivity {
+public class PDFActivity extends AppCompatActivity {
+
 
     private String pdfname;
     RelativeLayout layout;
@@ -57,16 +58,18 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
 
 
     public static final int MY_PERMISSION_REQUEST_WRITE_STORAGE = 99;
+    CustomDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_final_out_come_acitivty);
+        setContentView(R.layout.activity_pdf);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar_final_screen);
+        getSupportActionBar().setCustomView(R.layout.actionbar_pdf);
         RegisterViwes();
         layout = (RelativeLayout) findViewById(R.id.final_conclusion);
         isPdfGenerated = false;
+        dialog = new CustomDialog(PDFActivity.this);
 
         try {
 
@@ -84,7 +87,7 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
             }
             int postYear = yearInt + 1;
 
-            year.setText(String.valueOf(yearInt) + "-" + String.valueOf(setYear_to));
+            year.setText(" "+String.valueOf(yearInt) + "-" + String.valueOf(setYear_to));
             date.setText("1.07." + String.valueOf(yearInt) + " - " + "30.06." + String.valueOf(setYear_to));
             datelimit.setText("07-" + String.valueOf(yearInt) + " to " + "06-" + String.valueOf(setYear_to));
 
@@ -137,9 +140,82 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
 
     }
 
+  /*  @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
+    }*/
 
+   /* @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+    }*/
 
+/*    @Subscribe
+    public void onEvent(CustomMessage message){
+       String msg = message.getMessage();
+        if(msg.equals("Email")){
+            if(isPdfGenerated) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, "receiver_email_address");
+                email.putExtra(Intent.EXTRA_SUBJECT, "subject");
+                email.putExtra(Intent.EXTRA_TEXT, "email body");
+                //  Uri uri = Uri.fromFile(new File(pdfname));
+                Uri uri = FileProvider.getUriForFile(this, PDFActivity.this.getPackageName() + ".provider", myFile);
+                email.putExtra(Intent.EXTRA_STREAM, uri);
+                email.setType("application/pdf");
+                email.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(email);
+            }else {
+                Toast.makeText(PDFActivity.this,"Please generate the PDF first" ,Toast.LENGTH_SHORT).show();
+            }
+        }else if(msg.equals("ViewPdf")){
 
+            if(checkStoragePermission()) {
+
+                if (isPdfGenerated) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    //     Uri uri = null;// = Uri.fromFile(new File(pdfname));
+                    try {
+                        //       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+
+                        Uri uri = FileProvider.getUriForFile(this, PDFActivity.this.getPackageName() + ".provider", myFile);
+//                uri = FileProvider.getUriForFile(this, getPackageName() + ".PdfContentProvider", myFile);
+
+                        // Add in case of if We get Uri from fileProvider.
+                        //            intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        intent.setData(uri);
+                        //          intent.setType("application/pdf");
+                        // content://com.shan.tecklaptop.taxcalculator.provider/external_files/Documents/pdfdemo20170811_004203.pdf
+                        // /storage/emulated/0/Documents/pdfdemo20170811_005502.pdf
+                        //        intent.setDataAndType(uri,"application/pdf" );
+                        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                        startActivity(intent);
+                        //           } else {
+
+                        //              uri = Uri.fromFile(myFile);
+                        //           }
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                    //      intent.putExtra(MediaStore.EXTRA_OUTPUT,uri);
+
+                    //       intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+                } else {
+                    Toast.makeText(PDFActivity.this, "Please generate the PDF first", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(PDFActivity.this, "Please allow to access the your storage first", Toast.LENGTH_SHORT).show();
+            }
+
+        }else if(msg.equals("generatePdf")){
+            saveViewImage(layout);
+            isPdfGenerated = true;
+        }
+    }*/
 
     private void RegisterViwes() {
         gross_salary = (TextView) findViewById(R.id.gross_salary);
@@ -166,54 +242,48 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
     }
 
     public void sendEmail(View v){
-   //     CustomMessage message = new CustomMessage();
-   //     message.setMessage("Email");
-   //     EventBus.getDefault().post(message);
-        startActivity( new Intent(this , PDFActivity.class));
-   /*     if(isPdfGenerated) {
+        dialog.ShowDialog();
+        saveViewImage(layout);
+      //  if(isPdfGenerated) {
             Intent email = new Intent(Intent.ACTION_SEND);
             email.putExtra(Intent.EXTRA_EMAIL, "receiver_email_address");
             email.putExtra(Intent.EXTRA_SUBJECT, "subject");
             email.putExtra(Intent.EXTRA_TEXT, "email body");
-          //  Uri uri = Uri.fromFile(new File(pdfname));
-            Uri uri = FileProvider.getUriForFile(this, FinalOutComeAcitivty.this.getPackageName() + ".provider", myFile);
+            //  Uri uri = Uri.fromFile(new File(pdfname));
+            Uri uri = FileProvider.getUriForFile(this, PDFActivity.this.getPackageName() + ".provider", myFile);
             email.putExtra(Intent.EXTRA_STREAM, uri);
             email.setType("application/pdf");
             email.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(email);
-        }else {
-            Toast.makeText(FinalOutComeAcitivty.this,"Please generate the PDF first" ,Toast.LENGTH_SHORT).show();
-        }
-     //   startActivity( new Intent(FinalOutComeAcitivty.this,PDFActivity.class));*/
+    //    }else {
+    //        Toast.makeText(PDFActivity.this,"Please generate the PDF first" ,Toast.LENGTH_SHORT).show();
+    //    }
+        //   startActivity( new Intent(FinalOutComeAcitivty.this,PDFActivity.class));
+        dialog.HideDialog();
     }
 
     public void generatePDF(View v) {
-        /*saveViewImage(layout);
-        isPdfGenerated = true;*/
-        /*CustomMessage message = new CustomMessage();
-        message.setMessage("generatePdf");
-        EventBus.getDefault().post(message);*/
-
-        startActivity( new Intent(this , PDFActivity.class));
+        saveViewImage(layout);
+        isPdfGenerated = true;
     }
 
     public void viewPDF(View v){
 
-        CustomMessage message = new CustomMessage();
-        message.setMessage("ViewPdf");
-        EventBus.getDefault().post(message);
-
         // add storage permission
 
-     /*   if(checkStoragePermission()) {
+        dialog.ShowDialog();
 
-            if (isPdfGenerated) {
+        saveViewImage(layout);
+
+        if(checkStoragePermission()) {
+
+    //        if (isPdfGenerated) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 //     Uri uri = null;// = Uri.fromFile(new File(pdfname));
                 try {
                     //       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 
-                    Uri uri = FileProvider.getUriForFile(this, FinalOutComeAcitivty.this.getPackageName() + ".provider", myFile);
+                    Uri uri = FileProvider.getUriForFile(this, PDFActivity.this.getPackageName() + ".provider", myFile);
 //                uri = FileProvider.getUriForFile(this, getPackageName() + ".PdfContentProvider", myFile);
 
                     // Add in case of if We get Uri from fileProvider.
@@ -237,12 +307,14 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
 
                 //       intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
-            } else {
-                Toast.makeText(FinalOutComeAcitivty.this, "Please generate the PDF first", Toast.LENGTH_SHORT).show();
-            }
+ //           } else {
+ //               Toast.makeText(PDFActivity.this, "Please generate the PDF first", Toast.LENGTH_SHORT).show();
+ //           }
         }else {
-            Toast.makeText(FinalOutComeAcitivty.this, "Please allow to access the your storage first", Toast.LENGTH_SHORT).show();
-        }*/
+            Toast.makeText(PDFActivity.this, "Please allow to access the your storage first", Toast.LENGTH_SHORT).show();
+        }
+
+        dialog.HideDialog();
     }
 
     public boolean checkStoragePermission() {
@@ -292,7 +364,7 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
                     try {
                         //       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 
-                        Uri uri = FileProvider.getUriForFile(this, FinalOutComeAcitivty.this.getPackageName() + ".provider", myFile);
+                        Uri uri = FileProvider.getUriForFile(this, PDFActivity.this.getPackageName() + ".provider", myFile);
 //                uri = FileProvider.getUriForFile(this, getPackageName() + ".PdfContentProvider", myFile);
 
                         // Add in case of if We get Uri from fileProvider.
@@ -317,31 +389,31 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
                     //       intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
                 } else {
-                    Toast.makeText(FinalOutComeAcitivty.this, "Please generate the PDF first", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PDFActivity.this, "Please generate the PDF first", Toast.LENGTH_SHORT).show();
 
                 }
             }else {
 
-                Toast.makeText(FinalOutComeAcitivty.this, "Sorry!!! Permission Denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PDFActivity.this, "Sorry!!! Permission Denied", Toast.LENGTH_SHORT).show();
 
             }
         }
     }
 
 
-    @Override
+  /*  @Override
     public void onBackPressed() {
-      /*  Intent intent = new Intent(Intent.ACTION_VIEW);
+      *//*  Intent intent = new Intent(Intent.ACTION_VIEW);
         Uri uri = Uri.fromFile(new File(FILE));
         intent.setDataAndType(uri, "application/pdf");
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        startActivity(intent);*/
+        startActivity(intent);*//*
         //  convertLayoutToImage();
 
-    super.onBackPressed();
+        super.onBackPressed();
 
 
-    }
+    }*/
 
     public void saveViewImage(View view) {
         File file = saveBitMap(this, view);    //which view you want to pass that view as parameter
@@ -415,12 +487,12 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         Image signature;
         signature = Image.getInstance(stream.toByteArray());
- //       signature.scaleToFit(1000f, 800f);
- //       signature.setAbsolutePosition(150f, 30f);
-     //   signature.setScaleToFitHeight(true);
-     //   signature.setScaleToFitLineWhenOverflow(true);
-   //     signature.setWidthPercentage(60);
-      //  signature.setSpacingBefore(500);
+        //       signature.scaleToFit(1000f, 800f);
+        //       signature.setAbsolutePosition(150f, 30f);
+        //   signature.setScaleToFitHeight(true);
+        //   signature.setScaleToFitLineWhenOverflow(true);
+        //     signature.setWidthPercentage(60);
+        //  signature.setSpacingBefore(500);
         //     signature.scalePercent(40f);
         //Image image = Image.getInstance(byteArray);
         File pdfFolder = new File(Environment.getExternalStoragePublicDirectory(
@@ -459,4 +531,6 @@ public class FinalOutComeAcitivty extends AppCompatActivity {
         //Step 5: Close the document
         document.close();
     }
+
+
 }

@@ -162,7 +162,7 @@ public class ResultActivity extends AppCompatActivity {
         editor2.putString("total_tax",totalTax);
         editor2.putString("net_tax_pay",String.valueOf(net_tax_pay));
         if(truncatedDouble < 0){
-           editor2.putString("balance",String.valueOf(MOD_BALANCE));
+           editor2.putString("balance","("+String.valueOf(MOD_BALANCE)+")");
         }else{
             editor2.putString("balance",String.valueOf(truncatedDouble));
         }
@@ -170,7 +170,7 @@ public class ResultActivity extends AppCompatActivity {
 
 
         if(truncatedDouble < 0){
-            balance.setText(String.valueOf(MOD_BALANCE));
+            balance.setText("("+String.valueOf(MOD_BALANCE)+")");
         }else{
             balance.setText(String.valueOf(truncatedDouble));
         }

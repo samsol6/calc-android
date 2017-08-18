@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.shan.tecklaptop.taxcalculator.FinalOutComeAcitivty">
+    tools:context="com.shan.tecklaptop.taxcalculator.PDFActivity">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,36 +26,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:gravity="center">
-
-
-                <TextView
-                    android:id="@+id/titile_one"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="CALCUATION OF INCOME TAX FOR THE YEAR"
-                    android:textColor="@android:color/black"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/titile_one"
-                    android:id="@+id/year"
-                    android:text=" 2017-2018"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@android:color/black"
-                    android:textSize="16dp"
-                    android:layout_margin="2dp"
-                    android:textStyle="bold"
-                    />
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/year"
+                    android:id="@+id/lay_one"
+                    android:gravity="center_vertical|center_horizontal"
+                    >
+
+
+                    <TextView
+                        android:id="@+id/titile_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CALCUATION OF INCOME TAX FOR THE YEAR"
+                        android:textColor="@android:color/black"
+                        android:textSize="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/titile_one"
+                        android:layout_alignTop="@+id/titile_one"
+                        android:id="@+id/year"
+                        android:text=" 2017-2018"
+                        android:textColor="@android:color/black"
+                        android:textSize="10dp"
+                        android:textStyle="bold"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lay_one"
                     android:gravity="center_horizontal">
 
                     <TextView
@@ -62,9 +72,8 @@
                         android:layout_height="wrap_content"
                         android:text="WITH EFFECT FROM "
                         android:textColor="@android:color/black"
-                        android:textSize="14dp"
+                        android:textSize="10dp"
                         android:id="@+id/effect"
-                        android:layout_margin="2dp"
                         android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,7 +82,7 @@
                         android:id="@+id/date"
                         android:text="01.07.2016 TO 30.06.2017"
                         android:textColor="@android:color/black"
-                        android:textSize="14dp"
+                        android:textSize="10dp"
                         android:layout_toRightOf="@+id/effect"
                         android:layout_alignTop="@+id/effect"
                         android:textStyle="bold"
@@ -89,16 +98,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/heading_one"
-                android:layout_marginTop="10dp">
+                >
 
                 <TextView
                     android:id="@+id/heading_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="CALCUATION OF TAXABLE INCOME:"
+                    android:layout_marginLeft="10dp"
+                    android:text="CALCUATION OF TAXABLE INCOME"
                     android:textColor="@android:color/black"
-                    android:textSize="14dp"
+                    android:textSize="8dp"
                     android:textStyle="bold"/>
                 <View
                     android:layout_width="wrap_content"
@@ -111,10 +120,11 @@
                 <LinearLayout
                     android:id="@+id/row_one"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/heading_two"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
                     android:weightSum="10">
 
                     <RelativeLayout
@@ -131,7 +141,7 @@
                             android:layout_centerInParent="true"
                             android:gravity="center"
                             android:text="Description"
-                            android:textSize="14dp"
+                            android:textSize="7dp"
                             android:textStyle="bold"
                             android:textColor="@android:color/black"/>
 
@@ -144,7 +154,7 @@
                         android:background="@drawable/f_screen_bg"
                         android:gravity="center"
                         android:text="Amount"
-                        android:textSize="14dp"
+                        android:textSize="7dp"
                         android:textStyle="bold"
                         android:textColor="@android:color/black"/>
 
@@ -154,7 +164,7 @@
                 <LinearLayout
                     android:id="@+id/row_two"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_one"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -165,13 +175,14 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/f_screen_bg"
                         android:layout_weight="7"
+                        android:gravity="center_horizontal"
                         >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Gross Salary from "
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:id="@+id/date_label"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="10dp"
@@ -181,9 +192,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:id="@+id/date_limit"
                             android:layout_toRightOf="@+id/date_label"
+
                             />
 
                     </RelativeLayout>
@@ -192,18 +204,19 @@
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_weight="3"
-                        android:background="@drawable/f_screen_bg">
+                        android:background="@drawable/f_screen_bg"
+                        android:gravity="center_horizontal">
 
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Amount"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:id="@+id/gross_salary"
                             android:layout_alignParentRight="true"
-                            android:layout_marginRight="10dp"
                             android:layout_centerVertical="true"
+
 
                             />
 
@@ -215,7 +228,7 @@
                 <LinearLayout
                     android:id="@+id/row_three"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_two"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -226,6 +239,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/f_screen_bg"
                         android:layout_weight="7"
+                        android:gravity="center_horizontal"
                         >
 
                         <TextView
@@ -235,7 +249,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="House Rent Allowance(For House Aquisition Only)"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             />
 
                     </RelativeLayout>
@@ -245,12 +259,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
-                        android:id="@+id/h_rent"/>
+                        android:textSize="7dp"
+                        android:id="@+id/h_rent"
+                        />
 
 
                 </LinearLayout>
@@ -258,7 +273,7 @@
                 <LinearLayout
                     android:id="@+id/row_four"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_three"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -269,6 +284,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/f_screen_bg"
                         android:layout_weight="7"
+                        android:gravity="center_horizontal"
                         >
 
                         <TextView
@@ -277,7 +293,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Cost of free electricity units(For WAPDA Employee Only)"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:layout_centerVertical="true"/>
 
                     </RelativeLayout>
@@ -287,11 +303,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         android:id="@+id/elec_unit"/>
 
 
@@ -300,7 +316,7 @@
                 <LinearLayout
                     android:id="@+id/row_five"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_four"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -311,6 +327,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/f_screen_bg"
                         android:layout_weight="7"
+                        android:gravity="center_horizontal"
                         >
 
                         <TextView
@@ -321,7 +338,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Cost of unconsumed unit(For WAPDA Employee Only)"
-                            android:textSize="12dp" />
+                            android:textSize="7dp" />
 
                     </RelativeLayout>
 
@@ -331,11 +348,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         />
 
 
@@ -344,7 +361,7 @@
                 <LinearLayout
                     android:id="@+id/row_six"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_five"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -355,6 +372,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/f_screen_bg"
                         android:layout_weight="7"
+                        android:gravity="center_horizontal"
                         >
 
                         <TextView
@@ -364,7 +382,8 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Other Income (Bonus, Honorarium, Reward etc.)"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
+
                             />
 
                     </RelativeLayout>
@@ -374,12 +393,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
-                        android:id="@+id/other_income"/>
+                        android:textSize="7dp"
+                        android:id="@+id/other_income"
+                       />
 
 
                 </LinearLayout>
@@ -387,7 +407,7 @@
                 <LinearLayout
                     android:id="@+id/row_seven"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_six"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -407,7 +427,8 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Donation deducted"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
+                            android:layout_centerHorizontal="true"
                             />
 
                     </RelativeLayout>
@@ -417,12 +438,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
-                        android:id="@+id/donation"/>
+                        android:textSize="7dp"
+                        android:id="@+id/donation"
+                        />
 
 
                 </LinearLayout>
@@ -430,7 +452,7 @@
                 <LinearLayout
                     android:id="@+id/row_eight"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_seven"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -450,8 +472,9 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Zakat deducted"
-                            android:textSize="12dp"
-                            android:layout_centerVertical="true"/>
+                            android:textSize="7dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"/>
 
                     </RelativeLayout>
 
@@ -460,12 +483,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
-                        android:id="@+id/zakat"/>
+                        android:textSize="7dp"
+                        android:id="@+id/zakat"
+                        />
 
 
                 </LinearLayout>
@@ -473,7 +497,7 @@
                 <LinearLayout
                     android:id="@+id/row_nine"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="15dp"
                     android:layout_below="@+id/row_eight"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -484,6 +508,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/f_screen_bg"
                         android:layout_weight="7"
+                        android:gravity="center_horizontal"
                         >
 
                         <TextView
@@ -493,7 +518,8 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Net Taxable Income"
-                            android:textSize="12dp" />
+                            android:textSize="7dp"
+                           />
 
                     </RelativeLayout>
 
@@ -502,11 +528,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         android:id="@+id/net_tax"/>
 
 
@@ -523,16 +549,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/table_one"
-                android:layout_marginTop="20dp">
+                >
 
                 <TextView
                     android:id="@+id/t2_heading_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="CALCUATION OF TAX PAYABLE:"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="CALCUATION OF TAX PAYABLE"
                     android:textColor="@android:color/black"
-                    android:textSize="14dp"
+                    android:textSize="8dp"
                     android:textStyle="bold" />
 
                 <View
@@ -546,11 +573,11 @@
                 <LinearLayout
                     android:id="@+id/t2_row_one"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_heading_two"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-
+                    android:layout_marginTop="5dp"
                     android:weightSum="10">
 
                     <RelativeLayout
@@ -564,7 +591,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:text="Description"
-                            android:textSize="14dp"
+                            android:textSize="7dp"
                             android:textStyle="bold"
                             android:textColor="@android:color/black"/>
                     </RelativeLayout>
@@ -576,7 +603,7 @@
                         android:background="@drawable/f_screen_bg"
                         android:gravity="center"
                         android:text="Amount"
-                        android:textSize="14dp"
+                        android:textSize="7dp"
                         android:textStyle="bold"
                         android:textColor="@android:color/black"/>
 
@@ -586,7 +613,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_two"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_one"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -598,14 +625,15 @@
                         android:layout_weight="7"
                         android:background="@drawable/f_screen_bg"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp">
+                        android:paddingRight="10dp"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="left|center_vertical"
                             android:text="Tax Upto Rs."
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:id="@+id/income_label"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -613,7 +641,7 @@
                             android:layout_toRightOf="@+id/income_label"
                             android:layout_centerVertical="true"
                             android:text="750,000"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:id="@+id/set_income_tax"/>
                     </RelativeLayout>
 
@@ -623,11 +651,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp" />
+                        android:textSize="7dp" />
 
 
                 </LinearLayout>
@@ -635,7 +663,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_three"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_two"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -647,14 +675,15 @@
                         android:layout_weight="7"
                         android:background="@drawable/f_screen_bg"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp">
+                        android:paddingRight="10dp"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="left|center_vertical"
                             android:text="Tax on excess Amount @"
-                            android:textSize="13dp"
+                            android:textSize="7dp"
                             android:id="@+id/set_percent_label"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -662,7 +691,7 @@
                             android:layout_toRightOf="@+id/set_percent_label"
                             android:layout_centerVertical="true"
                             android:text="10%"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:id="@+id/set_percent"/>
                     </RelativeLayout>
 
@@ -671,11 +700,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         android:id="@+id/percentage"/>
 
 
@@ -684,7 +713,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_four"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_three"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -694,7 +723,8 @@
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
-                        android:background="@drawable/f_screen_bg">
+                        android:background="@drawable/f_screen_bg"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -703,7 +733,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Total tax calcuated"
-                            android:textSize="12dp" />
+                            android:textSize="7dp" />
                     </RelativeLayout>
 
                     <TextView
@@ -711,11 +741,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         android:id="@+id/total_tax"/>
 
 
@@ -724,7 +754,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_five"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_four"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -734,7 +764,8 @@
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
-                        android:background="@drawable/f_screen_bg">
+                        android:background="@drawable/f_screen_bg"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -743,7 +774,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Rebate/ withholding tax already paid"
-                            android:textSize="12dp" />
+                            android:textSize="7dp" />
                     </RelativeLayout>
 
                     <TextView
@@ -751,11 +782,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         android:id="@+id/rebate"/>
 
 
@@ -764,7 +795,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_six"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_five"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -774,7 +805,8 @@
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
-                        android:background="@drawable/f_screen_bg">
+                        android:background="@drawable/f_screen_bg"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -783,7 +815,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Net Tax Payable"
-                            android:textSize="12dp" />
+                            android:textSize="7dp" />
 
                     </RelativeLayout>
 
@@ -793,11 +825,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         />
 
 
@@ -806,7 +838,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_seven"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_six"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -816,7 +848,8 @@
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
-                        android:background="@drawable/f_screen_bg">
+                        android:background="@drawable/f_screen_bg"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -825,7 +858,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="TAX already deducted through salary"
-                            android:textSize="12dp" />
+                            android:textSize="7dp" />
 
                     </RelativeLayout>
 
@@ -834,11 +867,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
                         android:id="@+id/tax_deducted"/>
 
 
@@ -847,7 +880,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_eight"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_seven"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -857,16 +890,17 @@
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
-                        android:background="@drawable/f_screen_bg">
+                        android:background="@drawable/f_screen_bg"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
+                            android:maxLines="1"
                             android:text="TAX already deducted through Other Income (Bonus, Honorarium, Reward etc.)"
-                            android:textSize="12dp" />
+                            android:textSize="7dp" />
 
                     </RelativeLayout>
 
@@ -875,12 +909,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
-                        android:id="@+id/tax_deducted_otherIncome"/>
+                        android:textSize="7dp"
+                        android:id="@+id/tax_deducted_otherIncome"
+                        />
 
 
                 </LinearLayout>
@@ -888,7 +923,7 @@
                 <LinearLayout
                     android:id="@+id/t2_row_nine"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="20dp"
                     android:layout_below="@+id/t2_row_eight"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -898,7 +933,8 @@
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
-                        android:background="@drawable/f_screen_bg">
+                        android:background="@drawable/f_screen_bg"
+                        android:gravity="center_horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -906,7 +942,7 @@
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
                             android:text="Balance"
-                            android:textSize="12dp"
+                            android:textSize="7dp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentStart="true" />
 
@@ -917,11 +953,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="@drawable/f_screen_bg"
-                        android:gravity="right|center_vertical"
+                        android:gravity="center_horizontal|center_vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Amount"
-                        android:textSize="12dp"
+                        android:textSize="7dp"
 
                         android:id="@+id/balance"/>
 
@@ -930,7 +966,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:layout_below="@+id/t2_row_nine"
                     android:text="hello_world"
                     android:visibility="invisible"/>
@@ -959,22 +995,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="generatePDF"
-            android:layout_weight="10"
+            android:layout_weight="5"
             android:background="@drawable/save_button_bg"
             android:text="Generate pdf"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:visibility="gone"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="viewPDF"
-            android:layout_weight="5"
+            android:layout_weight="10"
             android:background="@drawable/save_button_bg"
-            android:text="View pdf"
-            android:textColor="@android:color/white"
-            android:visibility="gone"/>
+            android:text="Open in PdfViewer"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
-
-
 </RelativeLayout>

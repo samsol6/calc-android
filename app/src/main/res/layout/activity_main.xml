@@ -15,24 +15,97 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Spinner
+            <TextView
+                android:id="@+id/yearHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/yearSpinner"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                >
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:text="Select Financial Year"
+                android:textColor="@android:color/black"
+                android:textSize="18dp" />
 
-            </Spinner>
+            <LinearLayout
+                android:id="@+id/yearSelection"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/yearHeading"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:layout_margin="5dp">
+
+
+                <RelativeLayout
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="From"
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp"
+                        android:id="@+id/from"
+                        android:layout_centerVertical="true"/>
+
+                    <Spinner
+                        android:id="@+id/yearSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:layout_toRightOf="@+id/from"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        >
+
+                    </Spinner>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                   >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="to"
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp"
+                        android:id="@+id/to"
+                        android:layout_centerVertical="true"/>
+
+                    <Spinner
+                        android:id="@+id/yearSpinnerto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/to"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:textAlignment="center"
+                        >
+
+                    </Spinner>
+
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/first_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/f_screen_bg"
-                android:layout_below="@+id/yearSpinner"
-                >
+                android:layout_below="@+id/yearSelection"
+                android:background="@drawable/f_screen_bg">
 
                 <TextView
                     android:id="@+id/gross_salary"
@@ -55,7 +128,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -87,7 +160,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -120,7 +193,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -152,7 +225,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -184,7 +257,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -216,7 +289,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -248,7 +321,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -280,7 +353,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -298,22 +371,22 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
+                    android:layout_toLeftOf="@+id/tax_deduct_input"
                     android:text="Tax already deducted through salary "
                     android:textColor="@android:color/black"
-                    android:textSize="15dp"
-                    android:layout_toLeftOf="@+id/tax_deduct_input"/>
+                    android:textSize="15dp" />
 
                 <EditText
                     android:id="@+id/tax_deduct_input"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginRight="20dp"
-                    android:inputType="number"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="20dp" />
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -331,10 +404,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
+                    android:layout_toLeftOf="@+id/other_income_label_input"
                     android:text="Tax already deducted through other income ***"
                     android:textColor="@android:color/black"
-                    android:textSize="15dp"
-                    android:layout_toLeftOf="@+id/other_income_label_input"/>
+                    android:textSize="15dp" />
 
                 <EditText
                     android:id="@+id/other_income_label_input"
@@ -346,7 +419,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:inputType="number"/>
+                    android:inputType="number" />
 
             </RelativeLayout>
 
@@ -360,10 +433,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="*"
                     android:layout_alignTop="@+id/house_aqui"
                     android:layout_marginLeft="20dp"
-                    android:textSize="15dp"/>
+                    android:text="*"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/house_aqui"
@@ -371,18 +444,18 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
                     android:text="For house aquisition only"
                     android:textColor="@android:color/black"
-                    android:textSize="15dp"
-                    android:layout_marginTop="20dp"/>
+                    android:textSize="15dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="**"
                     android:layout_alignTop="@+id/wapda"
                     android:layout_marginLeft="20dp"
-                    android:textSize="15dp"/>
+                    android:text="**"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/wapda"
@@ -399,10 +472,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="***"
                     android:layout_alignTop="@+id/bonus"
                     android:layout_marginLeft="20dp"
-                    android:textSize="15dp"/>
+                    android:text="***"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/bonus"
@@ -410,12 +483,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_below="@+id/wapda"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
                     android:text="Bonus, Honorarium, Reward, etc"
                     android:textColor="@android:color/black"
-                    android:textSize="15dp"
-                    android:layout_marginBottom="20dp"/>
+                    android:textSize="15dp" />
 
 
             </RelativeLayout>
@@ -426,22 +499,19 @@
                 android:layout_alignParentBottom="true"
                 android:layout_below="@+id/adView"
                 android:background="@color/colorPrimary"
-                android:textColor="@android:color/white"
-                android:text="Calculate"
                 android:onClick="calculate"
-                android:visibility="visible"/>
+                android:text="Calculate"
+                android:textColor="@android:color/white"
+                android:visibility="visible" />
 
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-
-                ads:adSize="BANNER"
                 android:layout_below="@+id/eighth_row"
-                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-            </com.google.android.gms.ads.AdView>
+                android:layout_centerHorizontal="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/ADD_ID"></com.google.android.gms.ads.AdView>
 
 
         </RelativeLayout>

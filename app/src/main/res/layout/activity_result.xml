@@ -11,6 +11,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/conclusion"
+        android:layout_alignParentTop="true"
        >
 
 
@@ -18,8 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/result_container"
-
-           >
+            >
 
             <RelativeLayout
                 android:id="@+id/first_row"
@@ -35,7 +36,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
                     android:text="Net Taxable Income"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     />
 
                 <TextView
@@ -46,7 +47,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:textColor="@android:color/black"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"/>
 
             </RelativeLayout>
 
@@ -69,7 +70,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="20dp"
                     android:text="Tax upto Rs"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     android:id="@+id/taxUpTo"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,7 +78,7 @@
                     android:layout_toRightOf="@+id/taxUpTo"
                     android:id="@+id/set_income_tax"
                     android:layout_alignTop="@+id/taxUpTo"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"/>
 
                 <TextView
                     android:id="@+id/tax_amount"
@@ -87,7 +88,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:textColor="@android:color/black"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"/>
 
             </RelativeLayout>
 
@@ -109,7 +110,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="20dp"
                     android:text="Tax on excess Amount @"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     android:id="@+id/amount_ex"/>
 
                 <TextView
@@ -118,7 +119,7 @@
                     android:layout_toRightOf="@+id/amount_ex"
                     android:layout_alignTop="@+id/amount_ex"
                     android:id="@+id/set_percent"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"/>
 
                 <TextView
                     android:id="@+id/exceed_amount_percent"
@@ -128,7 +129,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:textColor="@android:color/black"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"/>
 
             </RelativeLayout>
 
@@ -148,7 +149,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
                     android:text="Total tax calculated"
-                    android:textSize="15dp"/>
+                    android:textSize="12dp"/>
 
                 <TextView
                     android:id="@+id/total_tax"
@@ -157,7 +158,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"/>
 
             </RelativeLayout>
 
@@ -176,7 +178,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
                     android:text="Rebate/withholding tax already paid"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     android:layout_toLeftOf="@+id/rebate"/>
 
                 <TextView
@@ -186,7 +188,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"/>
 
             </RelativeLayout>
 
@@ -205,7 +208,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
                     android:text="Net Tax Payable"
-                    android:textSize="15dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:id="@+id/net_tax_payable"
@@ -214,7 +217,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"/>
 
             </RelativeLayout>
 
@@ -234,7 +238,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
                     android:text="Tax already deducted through salary"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     android:layout_toLeftOf="@+id/deducted_tax"/>
 
                 <TextView
@@ -244,7 +248,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"/>
 
             </RelativeLayout>
 
@@ -264,7 +269,7 @@
                     android:layout_margin="20dp"
                     android:layout_toLeftOf="@+id/other_income"
                     android:text="Tax already deducted through other income"
-                    android:textSize="15dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:id="@+id/other_income"
@@ -273,7 +278,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"/>
 
 
             </RelativeLayout>
@@ -293,7 +299,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
                     android:text="Balance"
-                    android:textSize="15dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:id="@+id/balance"
@@ -302,7 +308,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp"/>
 
 
             </RelativeLayout>
@@ -310,21 +317,25 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
-                android:id="@+id/imageView"/>
+                android:id="@+id/imageView"
+                android:visibility="gone"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/nineth_row"
-                android:background="@drawable/save_button_bg"
-                android:text="View Final Conclusion"
-                android:textColor="@android:color/white"
-                android:onClick="GeneratePDF"
-                />
+
 
         </RelativeLayout>
 
     </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/save_button_bg"
+        android:text="View Final Conclusion"
+        android:textColor="@android:color/white"
+        android:onClick="GeneratePDF"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/conclusion"
+        />
 
 
 </RelativeLayout>

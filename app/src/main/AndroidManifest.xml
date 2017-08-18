@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.shan.tecklaptop.taxcalculator">
 
     <!-- Include required permissions for Google Mobile Ads to run. -->
@@ -23,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SlabEditorActivity" />
-        <activity android:name=".EditActivity" />
+        <activity android:name=".PDFActivity" />
         <activity android:name=".ResultActivity" />
 
         <service
@@ -34,14 +35,24 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2" /> <!-- Include the AdActivity configChanges and theme. -->
+        <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
         <activity android:name=".FinalOutComeAcitivty"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource"/>
+        </provider>
     </application>
 
 </manifest>

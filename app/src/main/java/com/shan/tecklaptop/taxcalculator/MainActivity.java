@@ -3,6 +3,8 @@ package com.shan.tecklaptop.taxcalculator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -48,11 +50,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static int SPLASH_TIME_OUT = 5000;
     private AdView mAdView;
     InterstitialAd  mInterstitialAd;
-    Spinner spinner;
+    Spinner spinner , spinnerto;
     String[]  yearsArray = new String[61] ;
-    int counter = 0 ;
-    ArrayAdapter<String> adapter;
-    String year;
+    String[]  yearsArray2 = new String[61] ;
+    int counter = 0 , counter2 = 0;
+    ArrayAdapter<String> adapter , adapter2;
+    String  year;
+    String  year_to;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +90,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             for (int i = 1990; i <= 2050; i++) {
                 if(counter == 0){
-                    yearsArray[counter] = "Select year";
+                    yearsArray[counter] = "select";
                 }else {
                 yearsArray[counter] = String.valueOf(i);
                 }
                 ++counter;
+
+            }
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        try {
+
+            for (int i = 1990; i <= 2050; i++) {
+                if(counter2 == 0){
+                    yearsArray2[counter2] = "select";
+                }else {
+                    yearsArray2[counter2] = String.valueOf(i);
+                }
+                ++counter2;
 
             }
         }catch (Exception e){
@@ -117,6 +137,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
             });
+
+            adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, yearsArray2);
+            spinnerto.setAdapter(adapter2);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    year_to =  String.valueOf(parent.getItemAtPosition(position));
+                    //    Toast.makeText(MainActivity.this, year , Toast.LENGTH_SHORT).show();
+                    SharedPreferences preferences = getSharedPreferences("YEAR_TO",Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("year_to",year_to);
+                    editor.commit();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
         }catch (Exception e){
             e.getMessage();
         }
@@ -128,13 +169,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
+            finish();
         }
+    }
+
+    private boolean haveNetworkConnection() {
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+        try {
+
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+            for (NetworkInfo ni : netInfo) {
+                if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                    if (ni.isConnected())
+                        haveConnectedWifi = true;
+                if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                    if (ni.isConnected())
+                        haveConnectedMobile = true;
+            }
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return haveConnectedWifi || haveConnectedMobile;
     }
 
     @Override
     public void onBackPressed() {
      //   super.onBackPressed();
-        showInterstitialAdd();
+      /*  if(haveNetworkConnection()) {
+            showInterstitialAdd();
+        }else{
+            finish();
+        }*/
+      super.onBackPressed();
     }
 
     private void refresh() {
@@ -166,6 +235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tax_deduct_input = (EditText) findViewById(R.id.tax_deduct_input);
         other_income_deducted_input = (EditText) findViewById(R.id.other_income_label_input);
         spinner = (Spinner) findViewById(R.id.yearSpinner);
+        spinnerto = (Spinner) findViewById(R.id.yearSpinnerto);
 
     }
 
@@ -391,7 +461,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String set_percentage = "";
 
 
-            if (income_after_deduction >= Double.valueOf(row_one_lower_limit) && income_after_deduction < Double.valueOf(row_one_uper_limit)) {
+            if (income_after_deduction > Double.valueOf(row_one_lower_limit) && income_after_deduction <= Double.valueOf(row_one_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_one_lower_limit);
 
@@ -406,7 +476,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //       apply_slab = ((income_after_deduction + Double.valueOf(row_one_income)) *  Double.valueOf(row_one_percent)) / 100;
 
-            } else if (income_after_deduction >= Double.valueOf(row_two_lower_limit) && income_after_deduction < Double.valueOf(row_two_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_two_lower_limit) && income_after_deduction <= Double.valueOf(row_two_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_two_lower_limit);
 
@@ -419,7 +489,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 // apply_slab = ((income_after_deduction + Double.valueOf(row_two_income)) * Double.valueOf(row_two_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_three_lower_limit) && income_after_deduction < Double.valueOf(row_three_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_three_lower_limit) && income_after_deduction <= Double.valueOf(row_three_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_three_lower_limit);
 
@@ -431,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 set_percentage = row_three_percent;
                 //      apply_slab = ((income_after_deduction + Double.valueOf(row_three_income)) * Double.valueOf(row_three_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_four_lower_limit) && income_after_deduction < Double.valueOf(row_four_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_four_lower_limit) && income_after_deduction <= Double.valueOf(row_four_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_four_lower_limit);
 
@@ -443,7 +513,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 set_percentage = row_four_percent;
                 //     apply_slab = ((income_after_deduction + Double.valueOf(row_four_income)) *  Double.valueOf(row_four_percent)) / 100;
 
-            } else if (income_after_deduction >= Double.valueOf(row_five_lower_limit) && income_after_deduction < Double.valueOf(row_five_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_five_lower_limit) && income_after_deduction <= Double.valueOf(row_five_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_five_lower_limit);
 
@@ -456,7 +526,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //     apply_slab = ((income_after_deduction + Double.valueOf(row_five_income)) * Double.valueOf(row_five_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_six_lower_limit) && income_after_deduction < Double.valueOf(row_six_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_six_lower_limit) && income_after_deduction <= Double.valueOf(row_six_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_six_lower_limit);
                 add_percentage = (result * Double.valueOf(row_six_percent)) / 100;
@@ -467,7 +537,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 set_percentage = row_six_percent;
                 //      apply_slab = ((income_after_deduction + Double.valueOf(row_six_income)) * Double.valueOf(row_six_percent)) / 100 ;
 
-            } else if (income_after_deduction > Double.valueOf(row_seven_lower_limit) && income_after_deduction < Double.valueOf(row_seven_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_seven_lower_limit) && income_after_deduction <= Double.valueOf(row_seven_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_seven_lower_limit);
                 add_percentage = (result * Double.valueOf(row_seven_percent)) / 100;
@@ -479,7 +549,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //      apply_slab = ((income_after_deduction + Double.valueOf(row_seven_income)) * Double.valueOf(row_seven_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_eight_lower_limit) && income_after_deduction < Double.valueOf(row_eight_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_eight_lower_limit) && income_after_deduction <= Double.valueOf(row_eight_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_eight_lower_limit);
 
@@ -491,7 +561,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 set_percentage = row_eight_percent;
                 //   apply_slab = ((income_after_deduction + Double.valueOf(row_eight_income)) *  Double.valueOf(row_eight_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_nine_lower_limit) && income_after_deduction < Double.valueOf(row_nine_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_nine_lower_limit) && income_after_deduction <= Double.valueOf(row_nine_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_nine_lower_limit);
 
@@ -503,7 +573,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 set_percentage = row_nine_percent;
                 //        apply_slab = ((income_after_deduction + Double.valueOf(row_nine_income)) * Double.valueOf(row_nine_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_ten_lower_limit) && income_after_deduction < Double.valueOf(row_ten_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_ten_lower_limit) && income_after_deduction <= Double.valueOf(row_ten_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_ten_lower_limit);
 
@@ -516,7 +586,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 set_percentage = row_ten_percent;
                 //      apply_slab = ((income_after_deduction + Double.valueOf(row_ten_income)) * Double.valueOf(row_ten_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_elev_lower_limit) && income_after_deduction < Double.valueOf(row_elev_uper_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_elev_lower_limit) && income_after_deduction <= Double.valueOf(row_elev_uper_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_elev_lower_limit);
 
@@ -529,7 +599,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //      apply_slab = ((income_after_deduction + Double.valueOf(row_elev_income)) * Double.valueOf(row_elev_percent)) / 100 ;
 
-            } else if (income_after_deduction >= Double.valueOf(row_twe_lower_limit)) {
+            } else if (income_after_deduction > Double.valueOf(row_twe_lower_limit)) {
 
                 Double result  = income_after_deduction - Double.valueOf(row_twe_lower_limit);
 
@@ -624,9 +694,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void calculate(View v) {
 
-        if(year.equals("Select year")){
+        if(year.equals("select") || year_to.equals("select")){
 
-            Toast.makeText(MainActivity.this,"Please select the Year",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,"Please select the Years",Toast.LENGTH_SHORT).show();
 
         }else {
 
